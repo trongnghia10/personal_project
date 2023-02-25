@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Thêm mới danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="h3 mb-2 text-gray-800" style="padding:0 22px 10px">Sửa thông tin danh mục</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">ID</label>
+                <input type="text" class="form-control" id="id" name=" id" placeholder="Nhập ID">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Tên danh mục</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên danh mục">
+            </div>
+            <button type="submit" class="btn btn-primary" id="btnSave">Lưu lại</button>
+        </form>
+            
+        
+    </div>
+    <div>
+        @Html.ActionLink("Quay lại danh sách", "GetAll","/Category")
+    </div>
+    <div id="message" style="color:red"></div>
+</div>
+
+
+@*@section Scripts{
+    <script>
+        $(function () {
+            $("#btnSave").click(function () {
+                var ctg = {};
+                ctg.id = $("#id").val();
+                ctg.name = $("#name").val();
+                console.log(ctg);
+                $.ajax({
+                    type: "PUT",
+                    url: "https://localhost:7127/api/Category",
+                    data: JSON.stringify(ctg),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        alert("Sửa danh mục thành công");
+                        console.log(ctg);
+                        //$("#message").html("Thêm danh mục thành công");
+                    },
+                    error: function (response) {
+                        alert("Sửa danh mục không thành công");
+                        console.log(ctg);
+                        //$("#message").html("Thêm danh mục không thành công");
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+*@
