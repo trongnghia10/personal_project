@@ -1,16 +1,15 @@
 ﻿@model project.Data.Entities.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm mới";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1 class="h3 mb-2 text-gray-800" style="padding:0 22px 10px">Thêm mới sản phẩm</h1>
 
-<h4>Product</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="card shadow mb-4">
+    <div class="card-body">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -43,13 +42,14 @@
                 <span asp-validation-for="imagePath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Thêm mới" class="btn btn-primary" />
             </div>
         </form>
+        <div>
+            <a asp-action="Index">Quay lại danh sách</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 

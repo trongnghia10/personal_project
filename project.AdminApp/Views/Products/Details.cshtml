@@ -1,15 +1,15 @@
 ﻿@model project.Data.Entities.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1 class="h3 mb-2 text-gray-800" style="padding:0 22px 10px">Chi tiết sản phẩm</h1>
 
-<div>
-    <h4>Product</h4>
-    <hr />
+
+<div class="card shadow mb-4">
+
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.name)
@@ -48,8 +48,9 @@
             @Html.DisplayFor(model => model.category.name)
         </dd>
     </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.id">Sửa</a> |
+        <a asp-action="Index">Quay lại danh sách</a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
